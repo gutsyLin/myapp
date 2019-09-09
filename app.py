@@ -1,6 +1,4 @@
 # coding=utf-8
-from dao.userDao import userDao 
+from controller import app
 
-dat = userDao.get_all()
-for d  in dat:
-    print d
+app.run(debug=True, port=8888)
