@@ -57,6 +57,7 @@
                     var uname = this.value;
                     if (uname.length >= 6) {
                         $.ajax({
+                            type: "post",
                             url: "/register/validate_name",
                             data: {username: uname},
                             success: function (data) {
@@ -93,13 +94,13 @@
 
                     if (infoValid) {
                         $.ajax({
-                            url: "${contextPath}/register/doRegister.json",
+                            url: "/register/do/",
                             type: "post",
                             data: {username: username, password: pwd},
                             success: function (data) {
-                                if (data.ifSucceed) {
+                                if (data.succeed) {
                                     alert("恭喜您成功注册到《幻想西游online》");
-                                    location.href = "${contextPath}/login/ui.html";
+                                    location.href = "/";
                                 } else {
                                     $errorInfo.html("* " + data.msg);
                                 }
